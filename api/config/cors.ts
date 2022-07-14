@@ -1,11 +1,4 @@
-/**
- * Config source: https://git.io/JfefC
- *
- * Feel free to let us know via PR, if you find something broken in this config
- * file.
- */
-
-import { CorsConfig } from '@ioc:Adonis/Core/Cors'
+import { CorsConfig } from "@ioc:Adonis/Core/Cors";
 
 const corsConfig: CorsConfig = {
   /*
@@ -20,7 +13,7 @@ const corsConfig: CorsConfig = {
   | you can define a function to enable/disable it on per request basis as well.
   |
   */
-  enabled: false,
+  enabled: true,
 
   // You can also use a function that return true or false.
   // enabled: (request) => request.url().startsWith('/api')
@@ -56,7 +49,7 @@ const corsConfig: CorsConfig = {
   |
   | Following is the list of default methods. Feel free to add more.
   */
-  methods: ['GET', 'HEAD', 'POST', 'PUT', 'DELETE'],
+  methods: ["GET", "HEAD", "POST", "PUT", "DELETE"],
 
   /*
   |--------------------------------------------------------------------------
@@ -98,12 +91,12 @@ const corsConfig: CorsConfig = {
   |
   */
   exposeHeaders: [
-    'cache-control',
-    'content-language',
-    'content-type',
-    'expires',
-    'last-modified',
-    'pragma',
+    "cache-control",
+    "content-language",
+    "content-type",
+    "expires",
+    "last-modified",
+    "pragma",
   ],
 
   /*
@@ -129,6 +122,6 @@ const corsConfig: CorsConfig = {
   |
   */
   maxAge: 90,
-}
+};
 
-export default corsConfig
+export default corsConfig;
