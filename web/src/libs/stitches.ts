@@ -1,4 +1,5 @@
 import { createStitches } from "@stitches/react";
+import { rem } from "@/utils/rem";
 
 export const {
   styled,
@@ -29,6 +30,29 @@ export const {
       buttonIdle: "0px 3px 0px 0px",
       buttonActive: "none",
     },
+    space: {
+      1: rem(4),
+      2: rem(8),
+      3: rem(12),
+      4: rem(16),
+      5: rem(20),
+      6: rem(24),
+      7: rem(28),
+      8: rem(32),
+      9: rem(36),
+      10: rem(40),
+      11: rem(44),
+      12: rem(48),
+      13: rem(52),
+      14: rem(56),
+      15: rem(60),
+      16: rem(64),
+      17: rem(68),
+      18: rem(72),
+      19: rem(76),
+      20: rem(80),
+      auto: "auto",
+    },
   },
 });
 
@@ -44,6 +68,7 @@ export const globalStyles = globalCss({
     margin: "0 auto",
     maxWidth: "700px",
     fontSize: "16px",
+    padding: "36px 0",
   },
   h1: { fontSize: "2.4rem" },
 });

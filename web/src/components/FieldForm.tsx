@@ -1,6 +1,7 @@
 import React from "react";
 import { createContext } from "@/utils/createContext";
 import { Input } from "./Input";
+import { Flex } from "./Box";
 
 interface FormFieldContext {
   id: string;
@@ -14,7 +15,9 @@ type FieldFormRootProps = React.PropsWithChildren & FormFieldContext;
 function FieldFormRoot({ children, id }: FieldFormRootProps) {
   return (
     <FormFieldProvider value={{ id }}>
-      <div>{children}</div>
+      <Flex as="p" css={{ flexDirection: "column", gap: "$1" }}>
+        {children}
+      </Flex>
     </FormFieldProvider>
   );
 }

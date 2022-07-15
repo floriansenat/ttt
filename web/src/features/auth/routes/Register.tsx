@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/Button";
 import { ButtonLink } from "@/components/ButtonLink";
 import { FieldForm } from "@/components/FieldForm";
+import { Flex } from "@/components/Box";
 
 import { useRegister } from "../api";
 
@@ -33,22 +34,24 @@ export function Register() {
         <h1>{meta.title}</h1>
 
         <form onSubmit={handleSubmit}>
-          <FieldForm.Root id="username">
-            <FieldForm.Label>Username</FieldForm.Label>
-            <FieldForm.Input name="username" type="text" />
-          </FieldForm.Root>
+          <Flex css={{ flexDirection: "column", gap: "$4", marginTop: "$6" }}>
+            <FieldForm.Root id="username">
+              <FieldForm.Label>Username</FieldForm.Label>
+              <FieldForm.Input name="username" type="text" />
+            </FieldForm.Root>
 
-          <FieldForm.Root id="password">
-            <FieldForm.Label>Password</FieldForm.Label>
-            <FieldForm.Input name="password" type="password" />
-          </FieldForm.Root>
+            <FieldForm.Root id="password">
+              <FieldForm.Label>Password</FieldForm.Label>
+              <FieldForm.Input name="password" type="password" />
+            </FieldForm.Root>
+          </Flex>
 
-          <div style={{ display: "flex", gap: "16px", marginTop: "36px" }}>
+          <Flex css={{ gap: "$4", marginTop: "$9" }}>
             <ButtonLink type="secondary" to="/">
               Cancel
             </ButtonLink>
             <Button>Create account</Button>
-          </div>
+          </Flex>
         </form>
       </main>
     </>
