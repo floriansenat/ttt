@@ -3,8 +3,8 @@ import { HelmetProvider } from "react-helmet-async";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 
-import { ErrorFallback } from "./components/ErrorFallback";
-import { globalStyles } from "./libs/stitches";
+import { ErrorFallback } from "@/components/ErrorFallback";
+import { globalStyles } from "@/libs/stitches";
 
 const queryClient = new QueryClient({
   defaultOptions: {

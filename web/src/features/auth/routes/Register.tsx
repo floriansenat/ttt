@@ -1,8 +1,10 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import { Button } from "../../../components/Button";
-import { ButtonLink } from "../../../components/ButtonLink";
-import { FieldForm } from "../../../components/FieldForm";
+
+import { Button } from "@/components/Button";
+import { ButtonLink } from "@/components/ButtonLink";
+import { FieldForm } from "@/components/FieldForm";
+
 import { useRegister } from "../api";
 
 const meta = {

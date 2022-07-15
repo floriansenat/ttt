@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { useQuery } from "react-query";
-import { ButtonLink } from "../../../components/ButtonLink";
+import { ButtonLink } from "@/components/ButtonLink";
 
 const meta = {
   title: "Login",

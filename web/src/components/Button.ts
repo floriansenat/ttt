@@ -1,4 +1,4 @@
-import { styled } from "../libs/stitches";
+import { styled } from "@/libs/stitches";
 
 export const Button = styled("button", {
   $$shadowColor: "$colors$greyDark",

@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import { Register, Login } from "./features/auth";
+import { Register, Login } from "@/features/auth";
 
 export function AppRoutes() {
   return (

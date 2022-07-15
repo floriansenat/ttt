@@ -1,4 +1,4 @@
-import { styled } from "../libs/stitches";
+import { styled } from "@/libs/stitches";
 
 export const Input = styled("input", {
   backgroundColor: "$white",
