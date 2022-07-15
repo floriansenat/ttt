@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { useQuery } from "react-query";
-import { Link } from "react-router-dom";
+import { ButtonLink } from "../../../components/ButtonLink";
 
 const meta = {
   title: "Login",
@@ -22,11 +22,11 @@ export function Login() {
       </Helmet>
 
       <main>
-        <h2>{meta.title}</h2>
+        <h1>{meta.title}</h1>
         <section>
           <div>{data}</div>
           <br />
-          <Link to="register">Create account</Link>
+          <ButtonLink to="register">Register</ButtonLink>
         </section>
       </main>
     </>

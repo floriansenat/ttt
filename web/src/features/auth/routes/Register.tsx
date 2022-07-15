@@ -1,12 +1,15 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Button } from "../../../components/Button";
+import { ButtonLink } from "../../../components/ButtonLink";
+import { FieldForm } from "../../../components/FieldForm";
 import { useRegister } from "../api";
 
 const meta = {
   title: "Register",
 };
 
+// TODO: Form validation
 export function Register() {
   const { mutate: register } = useRegister();
 
@@ -25,30 +28,24 @@ export function Register() {
       </Helmet>
 
       <main>
-        <h2>{meta.title}</h2>
-
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Connexion</Link>
-            </li>
-          </ul>
-        </nav>
+        <h1>{meta.title}</h1>
 
         <form onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="username">Username</label>
-            <input name="username" id="username" type="text" />
-          </div>
+          <FieldForm.Root id="username">
+            <FieldForm.Label>Username</FieldForm.Label>
+            <FieldForm.Input name="username" type="text" />
+          </FieldForm.Root>
 
-          <div>
-            <label htmlFor="password">Password</label>
-            <input name="password" id="password" type="password" />
-          </div>
+          <FieldForm.Root id="password">
+            <FieldForm.Label>Password</FieldForm.Label>
+            <FieldForm.Input name="password" type="password" />
+          </FieldForm.Root>
 
-          <div>
-            <Link to="/">Cancel</Link>
-            <button>Create account</button>
+          <div style={{ display: "flex", gap: "16px", marginTop: "36px" }}>
+            <ButtonLink type="secondary" to="/">
+              Cancel
+            </ButtonLink>
+            <Button>Create account</Button>
           </div>
         </form>
       </main>
