@@ -1,7 +1,7 @@
 import { v4 } from "uuid";
 import type { HttpContextContract } from "@ioc:Adonis/Core/HttpContext";
-import User from "../../Models/User";
 import Hash from "@ioc:Adonis/Core/Hash";
+import User from "../../Models/User";
 
 export default class UsersController {
   public async index() {
@@ -13,17 +13,20 @@ export default class UsersController {
     try {
       const username = request.input("username");
       const password = request.input("password");
-      const hashedPassword = await Hash.make(password);
 
       await User.create({
         id: v4(),
         username,
-        password: hashedPassword,
+        password: await Hash.make(password),
       });
 
       return response.status(201);
     } catch {
       return response.badRequest("Invalid username or password");
     }
+  }
+
+  public async me() {
+    return { should: "me" };
   }
 }
