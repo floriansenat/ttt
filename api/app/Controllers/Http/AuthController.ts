@@ -6,13 +6,20 @@ export default class AuthController {
     const password = request.input("password");
 
     try {
-      await auth.use("web").attempt(username, password);
+      const token = await auth.use("api").attempt(username, password);
+      return token;
     } catch {
-      return response.badRequest("Invalid credentials");
+      return response.unauthorized("Invalid credentials");
     }
   }
 
   public async logout() {
     return { should: "logout" };
+  }
+
+  public async me({ auth }: HttpContextContract) {
+    await auth.use("api").authenticate();
+
+    return auth.use("api").user!;
   }
 }

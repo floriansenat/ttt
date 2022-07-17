@@ -5,16 +5,14 @@ import { Button } from "@/components/Button";
 import { ButtonLink } from "@/components/ButtonLink";
 import { FieldForm } from "@/components/FieldForm";
 import { Flex } from "@/components/Box";
-
-import { useRegister } from "../api";
+import { useAuth } from "../providers";
 
 const meta = {
   title: "Register",
 };
 
-// TODO: Form validation
 export function Register() {
-  const { mutate: register } = useRegister();
+  const { register } = useAuth();
 
   const handleSubmit = (evt: React.FormEvent) => {
     evt.preventDefault();

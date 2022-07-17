@@ -1,7 +1,8 @@
 import { useMutation } from "react-query";
+import { API_URL } from "@/libs/env";
 
 async function register(body: FormData) {
-  await fetch("http://127.0.0.1:3333/users", {
+  await fetch(`${API_URL}/users`, {
     method: "post",
     body,
   });
