@@ -13,8 +13,8 @@ export default class AuthController {
     }
   }
 
-  public async logout() {
-    return { should: "logout" };
+  public async logout({ auth }: HttpContextContract) {
+    await auth.use("api").revoke();
   }
 
   public async me({ auth }: HttpContextContract) {

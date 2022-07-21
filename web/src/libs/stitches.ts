@@ -20,7 +20,8 @@ export const {
       greyMedium: "#aabcc6",
       blue: "#30c5bf",
       yellow: "#f3b136",
-      red: "#f35836",
+      redDark: "#a10933",
+      red: "#ff1e5b",
       white: "#fff",
     },
     radii: {

@@ -32,6 +32,11 @@ export const Button = styled("button", {
         $$textColor: "$colors$white",
         $$bgColor: "$colors$blackLight",
       },
+      destructive: {
+        $$shadowColor: "$colors$redDark",
+        $$textColor: "$colors$white",
+        $$bgColor: "$colors$red",
+      },
     },
   },
 });
