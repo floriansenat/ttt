@@ -17,8 +17,10 @@ async function getUser() {
 }
 
 export function useUser() {
-  const { data, ...otherProps } = useQuery([queryKey], getUser);
-  return { user: data, ...otherProps };
+  const { data, status, ...otherProps } = useQuery([queryKey], getUser);
+  const isLoggedIn = status === "success" && !data.errors;
+
+  return { user: data, isLoggedIn, status, ...otherProps };
 }
 
 export function useInvalidateUser() {

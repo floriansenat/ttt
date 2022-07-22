@@ -2,6 +2,7 @@ import { ErrorBoundary } from "react-error-boundary";
 import { HelmetProvider } from "react-helmet-async";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
+import { BrowserRouter } from "react-router-dom";
 
 import { ErrorFallback } from "@/components/ErrorFallback";
 import { globalStyles } from "@/libs/stitches";
@@ -23,7 +24,9 @@ export function AppProviders({ children }: React.PropsWithChildren) {
       <HelmetProvider>
         <QueryClientProvider client={queryClient}>
           {process.env.NODE_ENV !== "test" && <ReactQueryDevtools />}
-          <AuthProvider>{children}</AuthProvider>
+          <AuthProvider>
+            <BrowserRouter>{children}</BrowserRouter>
+          </AuthProvider>
         </QueryClientProvider>
       </HelmetProvider>
     </ErrorBoundary>
