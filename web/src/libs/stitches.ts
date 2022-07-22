@@ -13,16 +13,16 @@ export const {
 } = createStitches({
   theme: {
     colors: {
-      blackDark: "#11222a",
-      blackMedium: "#192a32",
-      blackLight: "#1f3540",
+      blackDark: "#002a38",
+      blackMedium: "#073b4c",
+      blackLight: "#13495a",
       greyDark: "#6e8a98",
       greyMedium: "#aabcc6",
-      blue: "#30c5bf",
-      yellow: "#f3b136",
-      redDark: "#a10933",
-      red: "#ff1e5b",
+      redDark: "#850025",
+      red: "#c50036",
       white: "#fff",
+      primaryDark: "#ac7900",
+      primaryMedium: "#ffd166",
     },
     radii: {
       md: "8px",

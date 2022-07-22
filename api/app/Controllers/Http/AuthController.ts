@@ -6,8 +6,7 @@ export default class AuthController {
     const password = request.input("password");
 
     try {
-      const token = await auth.use("api").attempt(username, password);
-      return token;
+      return await auth.use("api").attempt(username, password);
     } catch {
       return response.unauthorized("Invalid credentials");
     }
@@ -19,7 +18,6 @@ export default class AuthController {
 
   public async me({ auth }: HttpContextContract) {
     await auth.use("api").authenticate();
-
     return auth.use("api").user!;
   }
 }

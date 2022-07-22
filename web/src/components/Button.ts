@@ -1,9 +1,9 @@
 import { styled } from "@/libs/stitches";
 
 export const Button = styled("button", {
-  $$shadowColor: "$colors$greyDark",
+  $$shadowColor: "$colors$primaryDark",
   $$textColor: "$colors$blackDark",
-  $$bgColor: "$colors$greyMedium",
+  $$bgColor: "$colors$primaryMedium",
 
   padding: "0.8em 1.5em",
   fontWeight: 600,
