@@ -1,5 +1,6 @@
 import { useMutation } from "react-query";
 import { API_URL } from "@/libs/env";
+import { useLogin } from "./login";
 
 async function register(body: FormData) {
   const res = await fetch(`${API_URL}/users`, {
@@ -13,5 +14,11 @@ async function register(body: FormData) {
 }
 
 export function useRegister() {
-  return useMutation(["register"], register);
+  const { mutate: login } = useLogin();
+
+  return useMutation(["register"], register, {
+    onSuccess: (_, body) => {
+      login(body);
+    },
+  });
 }
