@@ -6,12 +6,16 @@ import { COOKIE_API_NAME } from "./const";
 import { useInvalidateUser } from "./get-user";
 
 async function logout() {
-  await fetch(`${API_URL}/logout`, {
+  const res = await fetch(`${API_URL}/logout`, {
     method: "post",
     headers: new Headers({
       Authorization: `Bearer ${Cookies.get(COOKIE_API_NAME)}`,
     }),
   });
+
+  if (!res.ok) {
+    throw await res.text();
+  }
 
   Cookies.remove(COOKIE_API_NAME);
 }

@@ -1,5 +1,8 @@
 import { useMutation } from "react-query";
+import toast from "react-hot-toast";
+
 import { API_URL } from "@/libs/env";
+
 import { useLogin } from "./login";
 
 async function register(body: FormData) {
@@ -9,7 +12,7 @@ async function register(body: FormData) {
   });
 
   if (!res.ok) {
-    throw new Error(res.status.toString());
+    throw await res.text();
   }
 }
 
@@ -19,6 +22,9 @@ export function useRegister() {
   return useMutation(["register"], register, {
     onSuccess: (_, body) => {
       login(body);
+      toast.success("Account created!", {
+        position: "bottom-center",
+      });
     },
   });
 }

@@ -10,8 +10,12 @@ async function login(body: FormData) {
     method: "post",
     body,
   });
-  const parsedRed = await res.json();
 
+  if (!res.ok) {
+    throw await res.text();
+  }
+
+  const parsedRed = await res.json();
   Cookies.set(COOKIE_API_NAME, parsedRed.token, { expires: 7 });
 }
 

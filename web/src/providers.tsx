@@ -1,19 +1,13 @@
 import { ErrorBoundary } from "react-error-boundary";
 import { HelmetProvider } from "react-helmet-async";
-import { QueryClient, QueryClientProvider } from "react-query";
+import { QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { BrowserRouter } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
 import { ErrorFallback } from "@/components/ErrorFallback";
 import { globalStyles } from "@/libs/stitches";
-
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      refetchOnWindowFocus: false,
-    },
-  },
-});
+import { queryClient } from "@/libs/react-query";
 
 export function AppProviders({ children }: React.PropsWithChildren) {
   globalStyles();
@@ -24,6 +18,7 @@ export function AppProviders({ children }: React.PropsWithChildren) {
         <QueryClientProvider client={queryClient}>
           {process.env.NODE_ENV !== "test" && <ReactQueryDevtools />}
           <BrowserRouter>{children}</BrowserRouter>
+          <Toaster />
         </QueryClientProvider>
       </HelmetProvider>
     </ErrorBoundary>
