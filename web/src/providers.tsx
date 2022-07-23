@@ -6,7 +6,6 @@ import { BrowserRouter } from "react-router-dom";
 
 import { ErrorFallback } from "@/components/ErrorFallback";
 import { globalStyles } from "@/libs/stitches";
-import { AuthProvider } from "@/features/auth";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -24,9 +23,7 @@ export function AppProviders({ children }: React.PropsWithChildren) {
       <HelmetProvider>
         <QueryClientProvider client={queryClient}>
           {process.env.NODE_ENV !== "test" && <ReactQueryDevtools />}
-          <AuthProvider>
-            <BrowserRouter>{children}</BrowserRouter>
-          </AuthProvider>
+          <BrowserRouter>{children}</BrowserRouter>
         </QueryClientProvider>
       </HelmetProvider>
     </ErrorBoundary>

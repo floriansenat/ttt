@@ -4,4 +4,6 @@ export const Box = styled("div", {});
 
 export const Flex = styled(Box, {
   display: "flex",
+  flexWrap: "wrap",
+  gap: "$2",
 });

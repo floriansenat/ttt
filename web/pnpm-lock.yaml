@@ -20,6 +20,7 @@ specifiers:
   react-query: ^4.0.0-beta.23
   react-router-dom: '6'
   react-scripts: 5.0.1
+  ts-pattern: ^4.0.5
   typescript: ^4.7.4
 
 dependencies:
@@ -32,6 +33,7 @@ dependencies:
   react-query: 4.0.0-beta.23_react-dom@18.2.0+react@18.2.0
   react-router-dom: 6.3.0_react-dom@18.2.0+react@18.2.0
   react-scripts: 5.0.1_react@18.2.0+typescript@4.7.4
+  ts-pattern: 4.0.5
   typescript: 4.7.4
 
 devDependencies:
@@ -9220,6 +9222,10 @@ packages:
 
   /tryer/1.0.1:
     resolution: {integrity: sha512-c3zayb8/kWWpycWYg87P71E1S1ZL6b6IJxfb5fvsUgsf0S2MVGaDhDXXjDMpdCpfWXqptc+4mXwmiy1ypXqRAA==}
+    dev: false
+
+  /ts-pattern/4.0.5:
+    resolution: {integrity: sha512-Bq44KCEt7JVaNLa148mBCJkcQf4l7jtLEBDuDdeuLynWDA+1a60P4D0rMkqSM9mOKLQbIWUddE9h3XKyKwBeqA==}
     dev: false
 
   /tsconfig-paths/3.14.1:

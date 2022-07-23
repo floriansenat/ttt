@@ -1,26 +1,26 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
+import { match } from "ts-pattern";
 
 import { Button } from "@/components/Button";
 import { ButtonLink } from "@/components/ButtonLink";
 import { FieldForm } from "@/components/FieldForm";
 import { Flex } from "@/components/Box";
-import { useAuth } from "../providers";
+
+import { useRegister } from "../api";
 
 const meta = {
   title: "Register",
 };
 
 export function Register() {
-  const { register } = useAuth();
+  const { mutate: register, status } = useRegister();
 
-  const handleSubmit = (evt: React.FormEvent) => {
+  function handleSubmit(evt: React.FormEvent) {
     evt.preventDefault();
-
     const data = new FormData(evt.target as HTMLFormElement);
-
     register(data);
-  };
+  }
 
   return (
     <>
@@ -45,10 +45,16 @@ export function Register() {
           </Flex>
 
           <Flex css={{ gap: "$4", marginTop: "$9" }}>
-            <ButtonLink type="secondary" to="/">
-              Cancel
-            </ButtonLink>
-            <Button>Create account</Button>
+            <>
+              <ButtonLink type="secondary" to="/">
+                Cancel
+              </ButtonLink>
+              <Button>
+                {match(status)
+                  .with("loading", () => "Creating...")
+                  .otherwise(() => "Create account")}
+              </Button>
+            </>
           </Flex>
         </form>
       </main>

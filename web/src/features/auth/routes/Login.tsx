@@ -1,24 +1,25 @@
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { match } from "ts-pattern";
 
 import { Flex } from "@/components/Box";
 import { FieldForm } from "@/components/FieldForm";
 import { Button } from "@/components/Button";
+import { Link } from "@/components/Link";
 
-import { useAuth } from "../providers";
+import { useLogin } from "../api";
 
 const meta = {
   title: "Login",
 };
 
 export function Login() {
-  const { login } = useAuth();
+  const { mutate: login, status } = useLogin();
 
-  const handleSubmit = (evt: React.FormEvent) => {
+  function handleSubmit(evt: React.FormEvent) {
     evt.preventDefault();
     const data = new FormData(evt.target as HTMLFormElement);
     login(data);
-  };
+  }
 
   return (
     <>
@@ -43,13 +44,23 @@ export function Login() {
           </Flex>
 
           <Flex css={{ gap: "$4", marginTop: "$9" }}>
-            <Button>Login</Button>
+            <Button>
+              {match(status)
+                .with("loading", () => "Logging in...")
+                .with("success", () => "You're in!")
+                .otherwise(() => "Login")}
+            </Button>
           </Flex>
         </form>
 
         <Flex
           as="section"
-          css={{ marginTop: "$8", gap: "$6", flexDirection: "column" }}
+          css={{
+            marginTop: "$8",
+            gap: "$6",
+            flexDirection: "column",
+            alignItems: "flex-start",
+          }}
         >
           <h2>Don't have an account?</h2>
           <Link to="register">Register</Link>

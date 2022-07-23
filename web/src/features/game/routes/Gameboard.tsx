@@ -1,20 +1,28 @@
+import { Helmet } from "react-helmet-async";
+import { match } from "ts-pattern";
+
 import { Button } from "@/components/Button";
 import { useLogout } from "@/features/auth";
-import { Helmet } from "react-helmet-async";
+
+const meta = {
+  title: "Gameboard",
+};
 
 export function Gameboard() {
-  const { mutate: logout } = useLogout();
+  const { mutate: logout, status } = useLogout();
 
   return (
     <>
       <Helmet>
-        <title>Gameboard</title>
+        <title>{meta.title}</title>
       </Helmet>
 
       <main>
-        <h1>Gameboard</h1>
+        <h1>{meta.title}</h1>
         <Button type="destructive" onClick={() => logout()}>
-          Logout
+          {match(status)
+            .with("loading", () => "Logging out...")
+            .otherwise(() => "Log out")}
         </Button>
       </main>
     </>
